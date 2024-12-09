@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Receipts Tracker</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/styles.css" th:href="@{/css/styles.css}"/>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/navbar.js"></script>
+    <script type="text/javascript" src="js/productsPaginationLogic.js"></script>
+</head>
+<body>
+<ul>
+    <li><a href="/transactions">Transactions</a></li>
+    <li><a href="/products">Products</a></li>
+    <li><a href="/bill">Add bill</a></li>
+    <li><a href="/settings">Settings</a></li>
+</ul>
+<div class="container">
+    <div class="container">
+        <div class="box">
+            <div class="filtersProductsContainer">
+                <div>
+                    <input type="checkbox" id="option1" checked />
+                    <label for="option1">Group by name</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="option2" checked />
+                    <label for="option2">Group by category</label>
+                </div>
+            </div>
+            <div class="tableContainer" id="tableContainer">
+                <table id="table">
+                    <thead>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Category</th>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

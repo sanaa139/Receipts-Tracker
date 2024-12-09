@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Receipts Tracker</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/styles.css" th:href="@{/css/styles.css}"/>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bill.js"></script>
+    <script type="text/javascript" src="js/addProducts.js"></script>
+
+</head>
+<body>
+<ul>
+    <li><a href="/transactions">Transactions</a></li>
+    <li><a href="/products">Products</a></li>
+    <li><a href="/bill">Add bill</a></li>
+    <li><a href="/settings">Settings</a></li>
+</ul>
+<div class="container">
+    <div class="box">
+        <form id="formCreateNewProduct">
+            <div class="boxForFormFields">
+                <div class="inputField">
+                    <label for="name">Name: </label>
+                    <input type="text" name="name" id="name" required />
+                </div>
+                <div class="inputField">
+                    <label for="price">Price: </label>
+                    <input type="number" step="0.01" name="price" id="price" required />
+                </div>
+                <div class="inputField">
+                    <label for="quantity">Quantity: </label>
+                    <input type="number" step="0.001" name="quantity" id="quantity" required />
+                </div>
+                <div class="selectField">
+                    <select id="select">
+                        <option disabled selected value> -- select an option -- </option>
+                    </select>
+                </div>
+            </div>
+            <button type=submit id="submitButton">Submit</button>
+       </form>
+
+        <table id="addProductsTable">
+            <thead>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Category</th>
+            <th>Full price</th>
+            <th></th>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <div>
+            <button id="submitDataButton">Submit</button>
+        </div>
+    </div>
+    <dialog id="dialogConfirmTransaction">
+        <button id="closeDialog">X</button>
+        <table id="transactionTable">
+            <thead>
+            <th>Date</th>
+            <th>Recipient</th>
+            <th>Price</th>
+            <th>SELECT</th>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <button id="saveTransactionChoice">Save</button>
+    </dialog>
+
+</div>
+</body>
+</html>

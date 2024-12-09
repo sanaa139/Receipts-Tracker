@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Receipts Tracker</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/styles.css" th:href="@{/css/styles.css}"/>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/settings.js"></script>
+<body>
+<ul>
+    <li><a href="/transactions">Transactions</a></li>
+    <li><a href="/products">Products</a></li>
+    <li><a href="/bill">Add bill</a></li>
+    <li><a href="/settings">Settings</a></li>
+</ul>
+<div class="container">
+    <div class="box">
+        <div>
+            <div>
+                <p>Import transactions from a CSV file</p>
+                <form th:action="@{/files/upload}" method="post" id="uploadForm" enctype="multipart/form-data">
+                    <input type="file" name="file" />
+                    <button type="submit">Upload</button>
+                </form>
+            </div>
+        </div>
+        <div>
+            <div>
+                <p>Create new transaction.</p>
+                <button id="openDialogAddTransactionButton">Create</button>
+                <dialog id="dialogAddTransaction">
+                    <div>
+                        <button id="closeDialogAddTransactionButton">X</button>
+                    </div>
+                    <form action="/api/settings" method="post" id="formCreateNewTransaction">
+                        <div>
+                            <div class="inputField">
+                                <label for="date">Date: </label>
+                                <input type="date" name="date" id="date" required />
+                            </div>
+                            <div class="inputField">
+                                <label for="recipient">Recipient: </label>
+                                <input type="text" name="recipient" id="recipient" required />
+                            </div>
+                            <div class="inputField">
+                                <label for="price">Price: </label>
+                                <input type="number" step="0.01" name="price" id="price" required />
+                            </div>
+                        </div>
+                        <button type=submit id="submitDataAddTransactionButton">Submit</button>
+                    </form>
+                </dialog>
+            </div>
+        </div>
+        <div>
+            <div>
+                <p>Add category:</p>
+                <div>
+                    <form action="api/categories" method="post" id="formAddCategory">
+                        <div class="inputField">
+                            <label for="category">Category name: </label>
+                            <input type="text" name="categoryName" id="category" required />
+                        </div>
+                        <button type=submit id="addCategoryButton">Add category</button>
+                    </form>
+                </div>
+                <table id="categoryTable">
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
